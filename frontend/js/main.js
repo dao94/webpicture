@@ -12,7 +12,7 @@ angular.module('app')
 
       // config
       $scope.app = {
-        name: 'Picture',
+        name: 'VietArt',
         version: '2.0.3',
         // for chart colors
         color: {
