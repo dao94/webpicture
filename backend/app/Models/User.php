@@ -29,6 +29,10 @@ class User extends Model {
 		protected $hidden     = ['password', 'remember_token'];
 		public $timestamps 	  = false;
 
+		public static function checkLogin($email,$password) {
+			return User::where('email',$email)->where('password',$password)->first();
+		}
+
 		static function createToken($user){
 			$token = array(
 	            "exp"  => time() + 86400*30,

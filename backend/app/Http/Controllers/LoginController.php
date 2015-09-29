@@ -29,7 +29,7 @@ class LoginController extends Controller {
 		$data = '';
 		if($v->fails()) {
 			$this->error = true;
-			$this->error_message = 'Form validate is fails , please check again !';
+			$this->error_message = 'Thông tin không chính xác hoặc không đầy đủ, vui lòng thử lại!';
 			goto next;
 		}
 
@@ -40,7 +40,7 @@ class LoginController extends Controller {
 			$checkEmail = User::existsEmail($email);
 			if($checkEmail) {
 				$this->error = true;
-				$this->error_message = 'Sorry, your email already registered in system';
+				$this->error_message = 'Xin lỗi email này đã tồn tại vui lòng thử lại !';
 				goto next;
 			}
 
@@ -53,7 +53,7 @@ class LoginController extends Controller {
 			$insertId    = User::insertGetId($newUser);	
 			if($insertId) {
 				$data = ['id' => $insertId];
-				$this->message = 'Add user the complete !';
+				$this->message = 'Đăng ký tài khoản thành công !';
 			}
 		} catch (Exception $e) {
 			$this->error   = true;
@@ -62,6 +62,26 @@ class LoginController extends Controller {
 
 		next:
 		return $this->ResponseData($data);
+	}
+
+	public function postLogin(Request $request) {
+		$v = Validator::make($request->all(),[
+				'email' => 'required',
+				'password' => 'required'
+		]);
+
+		if($v->fails()) {
+			$this->error = true;
+			$this->error_message = 'Thông tin không chính xác hoặc không đầy đủ, vui lòng thử lại!';
+			goto next;
+		}
+
+		$email    = $request->get('email');
+		$password = $request->get('password');
+		
+		goto next;
+		return $this->ResponseData($data);
+
 	}
 
 }
