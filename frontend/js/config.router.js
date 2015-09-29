@@ -37,7 +37,7 @@ angular.module('app')
               // others
               .state('access', {
                   url: '/access',
-                  template: '<div ui-view class="fade-in-right-big smooth"></div>'
+                  templateUrl: 'tpl/login/index.html',
               })
               .state('access.login', {
                   url: '/login',
