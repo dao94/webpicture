@@ -16,10 +16,14 @@ Route::get('/', function () {
 });
 
 // group router use authenticate
-Route::group(['prefix' => 'api/v1'], function()
+Route::group(['prefix' => 'api/v1','middleware' => ['auth']], function()
 {
     Route::controller('home', 'HomeController');
-    Route::controller('login', 'LoginController');
+});
+
+// group router not use authenticate
+Route::group(['prefix' => 'api/v1'],function() {
+	Route::controller('login', 'LoginController');
 });
 
 Route::group(['prefix' => 'admin'], function()

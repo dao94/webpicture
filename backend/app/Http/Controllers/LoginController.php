@@ -65,9 +65,10 @@ class LoginController extends Controller {
 	}
 
 	public function postLogin(Request $request) {
-		$v = Validator::make($request->all(),[
-				'email' => 'required',
-				'password' => 'required'
+		$data = '';
+		$v    = Validator::make($request->all(),[
+			'password' => 'required',
+			'email'    => 'required'
 		]);
 
 		if($v->fails()) {
@@ -77,9 +78,28 @@ class LoginController extends Controller {
 		}
 
 		$email    = $request->get('email');
-		$password = $request->get('password');
-		
-		goto next;
+		$password = md5(md5($request->get('password')));
+		$login    = User::checkLogin($email,$password);
+		if(!$login) {
+			$this->error = true;
+			$this->error_message = 'email hoặc mật khẩu không hợp lệ';
+			goto next;
+		}
+
+		$token = User::createToken([
+			'id'    => $login->id,
+			'email' => $login->email,
+		]);
+
+		$data = [
+			'id'    => $login->id,
+			'email' => $login->email,
+			'name'  => $login->name,
+			'token' => $token
+		];
+
+		$this->message = "Đăng nhập thành công , hệ thống sẽ chuyển trong giây lát";
+		next:
 		return $this->ResponseData($data);
 
 	}

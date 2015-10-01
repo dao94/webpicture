@@ -19,4 +19,9 @@ class HomeController extends Controller {
 		return response()->json(['name' => 'Abigail', 'state' => 'CA']);
 	}
 
+	public function postTest(Request $request) {
+		$user =  $this->getUserId($request);
+		var_dump($user);
+	}
+
 }
