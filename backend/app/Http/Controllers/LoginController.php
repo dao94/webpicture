@@ -35,7 +35,14 @@ class LoginController extends Controller {
 
 		$email    =  $request->get('email');
 		$name     =  $request->get('name');
+		$repassword = md5(md5($request->get('repassword')));
 		$password =  md5(md5($request->get('password')));
+		if($password != $repassword) {
+			$this->error         = true;
+			$this->error_message = 'Xác nhận mật khẩu không chính xác !';
+			goto next;
+		}
+
 		try {
 			$checkEmail = User::existsEmail($email);
 			if($checkEmail) {
