@@ -14,7 +14,7 @@
   z-index: 9999;
 }
 .growl-container.growl-fixed.top-right {
-  top: 10px;
+  bottom: 40px;
   right: 15px;
 }
 .growl-container.growl-fixed.bottom-right {
