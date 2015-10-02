@@ -23,6 +23,10 @@ angular
     	$scope.login = function(user) {
     		$scope.btnLogin = true;
     		$restful.post('login/login',user, function (err, res) {
+    			if(err) {
+    				console.log(err);
+    				return;
+    			}
     			$scope.btnLogin = false;
     			if(!res.error) {
     				$auth.setUser(res.data);

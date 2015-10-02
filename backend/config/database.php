@@ -54,7 +54,7 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'facecrm'),
+            'host'      => env('DB_HOST', 'facecrm.vn'),
             'database'  => env('DB_DATABASE', 'picture'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'thinhaA@2'),
