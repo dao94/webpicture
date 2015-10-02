@@ -342,12 +342,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/debug.git",
+<<<<<<< HEAD
             "reference": "c79c361bca8e5ada6a47603875a3c964d03b67b1"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/debug/zipball/c79c361bca8e5ada6a47603875a3c964d03b67b1",
             "reference": "c79c361bca8e5ada6a47603875a3c964d03b67b1",
+=======
+            "reference": "726bf9651d29f53243281d0b6418cfaa5e318281"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/debug/zipball/726bf9651d29f53243281d0b6418cfaa5e318281",
+            "reference": "726bf9651d29f53243281d0b6418cfaa5e318281",
+>>>>>>> 2548e8d77e079ff5bf5095086aad5517cb1bee33
             "shasum": ""
         },
         "require": {
@@ -399,12 +408,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/http-foundation.git",
+<<<<<<< HEAD
             "reference": "e1509119f164a0d0a940d7d924d693a7a28a5470"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e1509119f164a0d0a940d7d924d693a7a28a5470",
             "reference": "e1509119f164a0d0a940d7d924d693a7a28a5470",
+=======
+            "reference": "7253c2041652353e71560bbd300d6256d170ddaf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7253c2041652353e71560bbd300d6256d170ddaf",
+            "reference": "7253c2041652353e71560bbd300d6256d170ddaf",
+>>>>>>> 2548e8d77e079ff5bf5095086aad5517cb1bee33
             "shasum": ""
         },
         "require": {
@@ -454,12 +472,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/event-dispatcher.git",
+<<<<<<< HEAD
             "reference": "ae4dcc2a8d3de98bd794167a3ccda1311597c5d9"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ae4dcc2a8d3de98bd794167a3ccda1311597c5d9",
             "reference": "ae4dcc2a8d3de98bd794167a3ccda1311597c5d9",
+=======
+            "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b58c916f1db03a611b72dd702564f30ad8fe83fa",
+            "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa",
+>>>>>>> 2548e8d77e079ff5bf5095086aad5517cb1bee33
             "shasum": ""
         },
         "require": {
@@ -514,12 +541,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/http-kernel.git",
+<<<<<<< HEAD
             "reference": "353aa457424262d7d4e4289ea483145921cffcb5"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/http-kernel/zipball/353aa457424262d7d4e4289ea483145921cffcb5",
             "reference": "353aa457424262d7d4e4289ea483145921cffcb5",
+=======
+            "reference": "fd9c7af92c9e3ade1327cc3af10b17731eebc4a7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/http-kernel/zipball/fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
+            "reference": "fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
+>>>>>>> 2548e8d77e079ff5bf5095086aad5517cb1bee33
             "shasum": ""
         },
         "require": {
@@ -647,12 +683,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/dom-crawler.git",
+<<<<<<< HEAD
             "reference": "2e185ca136399f902b948694987e62c80099c052"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/2e185ca136399f902b948694987e62c80099c052",
             "reference": "2e185ca136399f902b948694987e62c80099c052",
+=======
+            "reference": "2a161e4ee2b2f33d4153be58df4f6f2a5506936e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
+            "reference": "2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
+>>>>>>> 2548e8d77e079ff5bf5095086aad5517cb1bee33
             "shasum": ""
         },
         "require": {
@@ -702,12 +747,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/css-selector.git",
+<<<<<<< HEAD
             "reference": "abe19cc0429a06be0c133056d1f9859854860970"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/css-selector/zipball/abe19cc0429a06be0c133056d1f9859854860970",
             "reference": "abe19cc0429a06be0c133056d1f9859854860970",
+=======
+            "reference": "ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/css-selector/zipball/ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
+            "reference": "ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
+>>>>>>> 2548e8d77e079ff5bf5095086aad5517cb1bee33
             "shasum": ""
         },
         "require": {
@@ -757,12 +811,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/console.git",
+<<<<<<< HEAD
             "reference": "06cb17c013a82f94a3d840682b49425cd00a2161"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/console/zipball/06cb17c013a82f94a3d840682b49425cd00a2161",
             "reference": "06cb17c013a82f94a3d840682b49425cd00a2161",
+=======
+            "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/console/zipball/9ff9032151186bd66ecee727d728f1319f52d1d8",
+            "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8",
+>>>>>>> 2548e8d77e079ff5bf5095086aad5517cb1bee33
             "shasum": ""
         },
         "require": {
@@ -3012,5 +3075,50 @@
             "testing",
             "tests"
         ]
+    },
+    {
+        "name": "firebase/php-jwt",
+        "version": "v3.0.0",
+        "version_normalized": "3.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/firebase/php-jwt.git",
+            "reference": "fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/firebase/php-jwt/zipball/fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1",
+            "reference": "fa8a06e96526eb7c0eeaa47e4f39be59d21f16e1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2015-07-22 18:31:08",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Firebase\\JWT\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Neuman Vong",
+                "email": "neuman+pear@twilio.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Anant Narayanan",
+                "email": "anant@php.net",
+                "role": "Developer"
+            }
+        ],
+        "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+        "homepage": "https://github.com/firebase/php-jwt"
     }
 ]

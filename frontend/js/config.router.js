@@ -4,14 +4,46 @@
  * Config for the router
  */
 angular.module('app')
-  .run(
-    [          '$rootScope', '$state', '$stateParams',
-      function ($rootScope,   $state,   $stateParams) {
-          $rootScope.$state = $state;
-          $rootScope.$stateParams = $stateParams;        
+  .run(['$rootScope', '$state', '$stateParams','$auth',
+      function ($rootScope,   $state,   $stateParams,$auth) {
+          $rootScope.$state       = $state;
+          $rootScope.$stateParams = $stateParams;     
+          $rootScope.user         = $auth.getUser() || false;   
+
+          $rootScope.$on('$stateChangeSuccess', function (ev, data, bcb) {
+            window.scrollTo(0, 0);
+          });
+
+          $rootScope.$on('$stateChangeStart', function (ev, toState, toParams){
+            $rootScope.user = $auth.getUser() || false;
+
+            if(toState.name.indexOf('app') !== -1){
+              if(!$auth.getUser() || $auth.getUser()['token']['exp']  <= (Date.now() / 1000) && !$auth.getToken()){
+                  $auth.clearUser();
+                  $rootScope.user = $auth.getUser() || false;
+                  ev.preventDefault();
+
+                  window.location = 'http://picture.local.com/frontend/#/access/login';
+                  return ;
+              }
+            }
+
+            if(toState.name == 'access.login') {
+              $auth.clearUser();
+              $rootScope.user = $auth.getUser() || false;
+            }
+
+            $rootScope.logout = function() {
+              $auth.clearUser();
+              $rootScope.user = '';
+              $state.go('access.login');
+            }
+
+          });
+
+          $auth.setToken();
       }
-    ]
-  )
+  ])
   .config(
     [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 
       function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
@@ -27,6 +59,7 @@ angular.module('app')
               .state('app.dashboard', {
                   url: '/dashboard',
                   templateUrl: 'tpl/app_dashboard.html',
+                  resolve: load( ['script/controllers/dashboardController.js'] )
               })
               .state('app.profile', {
                   url: '/profile',

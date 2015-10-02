@@ -10,20 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // group router use authenticate
-Route::group(['prefix' => 'api/v1'], function()
+Route::group(['prefix' => 'api/v1','middleware' => ['auth']], function()
 {
     Route::controller('home', 'HomeController');
-    Route::controller('login', 'LoginController');
 });
 
-Route::group(['prefix' => 'admin'], function()
-{	
-	Route::controller('', 'Admin\MainController');
-
+// group router not use authenticate
+Route::group(['prefix' => 'api/v1'],function() {
+	Route::controller('login', 'LoginController');
 });
+
