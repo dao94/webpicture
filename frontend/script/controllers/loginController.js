@@ -30,7 +30,6 @@ angular
     				if(!res.error) {
 	    				$auth.setUser(res.data);
 						$auth.setToken(res.data.token.token);
-						
 	    				growl.success(res.message,{ttl : 3000});
 	    				$scope.user = {};
 	    				$timeout(function() {
