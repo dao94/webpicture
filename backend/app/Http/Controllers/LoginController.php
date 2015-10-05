@@ -54,7 +54,8 @@ class LoginController extends Controller {
 			$newUser = array(
 				'email'    => $email,
 				'password' => $password,
-				'name'     => $name
+				'name'     => $name,
+				// 'level'    => User::ARTIST
     		);
 
 			$insertId    = User::insertGetId($newUser);	
@@ -96,6 +97,7 @@ class LoginController extends Controller {
 		$token = User::createToken([
 			'id'    => $login->id,
 			'email' => $login->email,
+			'level' => $login->level
 		]);
 
 		$data = [

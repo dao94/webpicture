@@ -21,8 +21,11 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
-    protected $table = 'users';
-
+    CONST USER   = 1; // nguoi dung
+    
+    CONST ARTIST = 2; // Nghe si
+    
+    CONST ADMIN  = 3; // Admin
     /**
      * The attributes that are mass assignable.
      *

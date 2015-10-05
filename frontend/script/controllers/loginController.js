@@ -15,8 +15,7 @@ angular
     				$timeout(function() {
     					$state.go('access.login');
     				},3000);
-    			}
-    			else{
+    			} else {
     				growl.warning(res.error_message,{ttl : 4000});
     			}
     		})
