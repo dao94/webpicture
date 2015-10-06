@@ -128,7 +128,7 @@
           <li class="dropdown" dropdown>
             <a href class="dropdown-toggle clear" dropdown-toggle>
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                <img src="img/a0.jpg" alt="...">
+                <img src="{{user.avatar ? user.avatar : 'img/avatar.png'}}" alt="avatar">
                 <i class="on md b-white bottom"></i>
               </span>
               <span class="hidden-sm hidden-md">{{user.email}}</span> <b class="caret"></b>

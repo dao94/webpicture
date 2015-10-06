@@ -64,6 +64,7 @@ angular.module('app')
               .state('app.profile', {
                   url: '/profile',
                   templateUrl: 'tpl/page_profile.html',
+                  resolve:load(['script/controllers/profileController.js'])
               })
 
 

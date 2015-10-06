@@ -6,6 +6,12 @@ angular
     	$scope.user = {};
     	$scope.btnLogin = false;
     	$scope.register = function(user) {
+
+            if($scope.user.password != $scope.user.repassword) {
+                growl.warning("Nhập mật khẩu không chính xác",{ttl : 4000});
+                return false;
+            }
+
     		$scope.btnLogin = true;
     		$restful.post('login/register',user, function (err, res) {
     			$scope.btnLogin = false;

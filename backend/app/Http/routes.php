@@ -13,11 +13,12 @@
 // group router use authenticate
 Route::group(['prefix' => 'api/v1','middleware' => ['auth']], function()
 {
-    Route::controller('home', 'HomeController');
+    Route::controller('profile', 'ProfileController');
 });
 
 // group router not use authenticate
 Route::group(['prefix' => 'api/v1'],function() {
+	Route::controller('home', 'HomeController');
 	Route::controller('login', 'LoginController');
 });
 
