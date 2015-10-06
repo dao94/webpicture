@@ -1,0 +1,157 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false; 
+    app.settings.asideDock = false;
+  ">
+    <!-- main -->
+    <div class="col" ng-controller='ArtworkCtrl'>
+        <!-- main header -->
+        <div class="bg-light lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h1 class="m-n font-thin h3 text-black">Đăng tác phẩm</h1>
+                </div>
+                <!-- <div class="col-sm-6 text-right hidden-xs">
+                    <div class="inline text-left">
+                        <button class="btn btn-success"><i class='fa fa-television'></i> Tải lên sản phẩm</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <!-- / main header -->
+        <div class="clearfix"></div>
+        <div class="padder artworks-create-page ">
+            <div class="bg-white m-t-md">
+                <div class="panel panel-default">
+                    <form ng-submit="save(frm)">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6 " style="min-height:500px">
+                                    <div class="b-a b-2x wrapper-lg color-swatch gray-lighter text-center m-b" style="background:#eee;min-height:300px">
+                                      
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="b-a b-2x b-dashed wrapper-lg bg-white text-center m-b" nv-file-over="" over-class="b-info" uploader="uploader">
+                                              <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="alert alert-success"><strong>Mẹo</strong>: Các bức ảnh nên được loại bỏ các vật dụng hoặc khoảng thừa (con người, khung , tường ..) tập chung chính vào nội dung bức ảnh </div>
+                                </div>
+                                <div class="col-md-8 col-sm-6">
+
+                                    <div class="form-group">
+                                        <label>Tên tác phẩm</label>
+                                        <input type="text"
+                                               class="form-control "
+                                               ng-model="frm.name"  required
+                                               tabindex="0"
+                                               aria-required="true" aria-invalid="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mô tả ngắn về tác phẩm</label>
+                                        <textarea class="form-control" ng-model="frm.description"></textarea>
+                                        
+                                    </div>
+                                    <div class="form-group pull-in clearfix">
+                                        <div class="col-sm-6">
+                                            <label>Phong cách</label>
+                                            <select class="form-control" ng-model="frm.style">
+                                                <option>Trừu tượng</option>
+                                                <option>Đương đại</option>
+                                                <option>Chân dung</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Chất liệu</label>
+                                            <select class="form-control" ng-model="frm.materials">
+                                                <option>Sơn dầu</option>
+                                                <option>Sơn nước</option>
+                                                <option>Vẽ chì</option>
+                                            </select>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="form-group pull-in clearfix">
+                                        <div class="col-sm-6">
+                                            <label>Tông màu chính</label>
+                                            <select class="form-control" ng-model="frm.color">
+                                                <option>Màu đỏ</option>
+                                                <option>Màu xanh</option>
+                                                <option>Màu vàng</option>
+                                                <option>Màu đen</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Giá tác phẩm</label>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   ng-model="frm.pricing"
+                                                   aria-required="true" aria-invalid="true" formatnumber> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group pull-in clearfix">
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label>Dài (cm)</label>
+                                                    <input type="text"
+                                                       class="form-control "
+                                                       ng-model="frm.long"
+                                                       tabindex="0"
+                                                       aria-required="true" aria-invalid="true" formatnumber>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Rộng (cm)</label>
+                                                    <input type="text"
+                                                       class="form-control"
+                                                       ng-model="frm.width"
+                                                       tabindex="0"
+                                                       aria-required="true" aria-invalid="true" formatnumber>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Cao (cm)</label>
+                                                    <input type="text"
+                                                       class="form-control"
+                                                       ng-model="frm.height"
+                                                       tabindex="0"
+                                                       aria-required="true" aria-invalid="true" formatnumber>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Trọng lượng (gram)</label>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   ng-model="frm.weight"
+                                                   tabindex="0"
+                                                   aria-required="true" aria-invalid="true" formatnumber>
+                                        </div>
+                                    </div>
+                                        
+                                    
+                                    
+                                    <div class="checkbox">
+                                        <label class="i-checks">
+                                            <input type="checkbox" required="" checked
+                                                   ng-model="frm.forsale"
+                                                   tabindex="0"
+                                                   ><i></i> Tác phẩm thương mại
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-success" aria-disabled="true">Đăng tác phẩm
+                            </button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / main -->
+</div>

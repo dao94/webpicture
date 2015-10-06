@@ -66,6 +66,23 @@ angular.module('app')
                   templateUrl: 'tpl/page_profile.html',
               })
 
+              .state('app.collection', {
+                  url: '/collections',
+                  templateUrl: 'tpl/collections/index.html',
+                  resolve: load( ['script/controllers/collections/CollectionCtrl.js'] )
+              })
+
+              .state('app.artworks', {
+                  url: '/artworks?:collection&:name',
+                  templateUrl: 'tpl/artworks/index.html',
+                  resolve: load( ['script/controllers/artworks/ArtworkCtrl.js'] )
+              })
+              .state('app.artworks_create', {
+                  url: '/artworks/create',
+                  templateUrl: 'tpl/artworks/create.html',
+                  resolve: load( ['script/controllers/artworks/ArtworkCtrl.js'] )
+              })
+
 
               // others
               .state('access', {
