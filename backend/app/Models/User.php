@@ -7,6 +7,12 @@ use \Firebase\JWT\JWT;
 
 class User extends Model {
 
+		CONST USER   = 1; // nguoi dung
+	    
+	    CONST ARTIST = 2; // Nghe si
+	    
+	    CONST ADMIN  = 3; // Admin
+	    
 		/**
 		* The database table used by the model.
 		*

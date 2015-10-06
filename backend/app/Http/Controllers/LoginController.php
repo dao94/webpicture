@@ -22,7 +22,6 @@ class LoginController extends Controller {
 
 	public function postRegister(Request $request) {
 		$v = Validator::make($request->all(),[
-			'name'     => 'required',
 			'password' => 'required',
 			'email'    => 'email:required|max:255',
 		]);
@@ -34,7 +33,6 @@ class LoginController extends Controller {
 		}
 
 		$email    =  $request->get('email');
-		$name     =  $request->get('name');
 		$repassword = md5(md5($request->get('repassword')));
 		$password =  md5(md5($request->get('password')));
 		if($password != $repassword) {
@@ -54,7 +52,6 @@ class LoginController extends Controller {
 			$newUser = array(
 				'email'    => $email,
 				'password' => $password,
-				'name'     => $name,
 				// 'level'    => User::ARTIST
     		);
 
@@ -73,43 +70,50 @@ class LoginController extends Controller {
 	}
 
 	public function postLogin(Request $request) {
-		$data = '';
-		$v    = Validator::make($request->all(),[
-			'password' => 'required',
-			'email'    => 'required'
-		]);
+		try {
+			$data = '';
+			$v    = Validator::make($request->all(),[
+				'password' => 'required',
+				'email'    => 'required'
+			]);
 
-		if($v->fails()) {
+
+			if($v->fails()) {
+				$this->error = true;
+				$this->error_message = 'Thông tin không chính xác hoặc không đầy đủ, vui lòng thử lại!';
+				goto next;
+			}
+
+
+			$email    = $request->get('email');
+			$password = md5(md5($request->get('password')));
+			$login    = User::checkLogin($email,$password);
+			if(!$login) {
+				$this->error = true;
+				$this->error_message = 'email hoặc mật khẩu không hợp lệ';
+				goto next;
+			}
+
+			$token = User::createToken([
+				'id'    => $login->id,
+				'email' => $login->email,
+				'level' => $login->level
+			]);
+
+			$data = [
+				'id'    => $login->id,
+				'email' => $login->email,
+				'name'  => $login->name,
+				'token' => $token
+			];
+
+			$this->message = "Đăng nhập thành công , hệ thống sẽ chuyển trong giây lát";	
+			next:
+			return $this->ResponseData($data);
+		} catch (Exception $e) {
 			$this->error = true;
-			$this->error_message = 'Thông tin không chính xác hoặc không đầy đủ, vui lòng thử lại!';
-			goto next;
+			$this->error_message = $e->getMessage();
 		}
-
-		$email    = $request->get('email');
-		$password = md5(md5($request->get('password')));
-		$login    = User::checkLogin($email,$password);
-		if(!$login) {
-			$this->error = true;
-			$this->error_message = 'email hoặc mật khẩu không hợp lệ';
-			goto next;
-		}
-
-		$token = User::createToken([
-			'id'    => $login->id,
-			'email' => $login->email,
-			'level' => $login->level
-		]);
-
-		$data = [
-			'id'    => $login->id,
-			'email' => $login->email,
-			'name'  => $login->name,
-			'token' => $token
-		];
-
-		$this->message = "Đăng nhập thành công , hệ thống sẽ chuyển trong giây lát";
-		next:
-		return $this->ResponseData($data);
 
 	}
 
