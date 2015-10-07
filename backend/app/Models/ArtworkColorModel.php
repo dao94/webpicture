@@ -2,9 +2,10 @@
 
 
 use Illuminate\Database\Eloquent\Model;
+
 use Config;
 
-class ArtworkStyleModel extends Model {
-	protected $table      = 'artwork_style';
+class ArtworkColorModel extends Model {
+	protected $table      = 'artwork_color';
 	public $timestamps 	  = false;
 }

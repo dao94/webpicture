@@ -5183,3 +5183,29 @@ a.text-#000000:hover {
     background-color: #62bd49;
   }
 }
+
+/*
+  Uploader
+*/
+
+.input-uploader{
+    opacity : 0;
+    height  : 100px;
+}
+
+.input-uploader-popup{
+    opacity : 0;
+    height  : 100px;
+}
+
+.content-uploader{
+    position    : absolute;
+    top         : 40px;
+    left        : 60px;
+}
+
+.content-uploader-popup{
+    position    : absolute;
+    top         : 50px;
+    left        : 40%;
+}

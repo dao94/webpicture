@@ -8,8 +8,13 @@ angular.module('app')
 				});
 			},
 
-			getDistricts: function (city_code, callback){
-				$restful.get('districts/show',{city: city_code},  function (error, resp){
+			getStyle: function (callback){
+				$restful.get('artworks/style/show', function (error, resp){
+					callback(error, resp)
+				});
+			},
+			getColor: function (callback){
+				$restful.get('artworks/color/show', function (error, resp){
 					callback(error, resp)
 				});
 			},

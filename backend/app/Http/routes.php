@@ -14,6 +14,11 @@
 Route::group(['prefix' => 'api/v1','middleware' => ['auth']], function()
 {
     Route::controller('profile', 'ProfileController');
+    Route::controller('artworks/material', 'artworks\ArtworkMaterialController');
+    Route::controller('artworks/style', 'artworks\ArtworkStyleController');
+    Route::controller('artworks/color', 'artworks\ArtworkColorController');
+    Route::controller('uploader', 'UploaderController');
+    
 });
 
 // group router not use authenticate

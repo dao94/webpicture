@@ -19,7 +19,8 @@ angular.module('app', [
     'oc.lazyLoad',
     'pascalprecht.translate',
     'ngMaterial',
-    'angular-growl'
+    'angular-growl',
+    'angularFileUpload'
 ])
 
 .directive('formatnumber', function() {

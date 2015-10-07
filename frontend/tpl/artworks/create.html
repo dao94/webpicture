@@ -31,13 +31,16 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <div class="b-a b-2x b-dashed wrapper-lg bg-white text-center m-b" nv-file-over="" over-class="b-info" uploader="uploader">
-                                              <i class="fa fa-plus"></i>
+                                            <div class="b-a b-dashed" nv-file-drop="" uploader="uploader">
+                                                <div nv-file-over="" uploader="uploader" over-class="another-file-over-class">
+                                                    <input type="file" class="w-full input-uploader-popup" nv-file-select="" uploader="uploader" multiple />
+                                                    <span class="content-uploader-popup"><i class="fa fa-picture-o fa-lg"></i> </span>
+                                                </div>
                                             </div>
                                         </div>
                                         
                                     </div>
-                                    <div class="alert alert-success"><strong>Mẹo</strong>: Các bức ảnh nên được loại bỏ các vật dụng hoặc khoảng thừa (con người, khung , tường ..) tập chung chính vào nội dung bức ảnh </div>
+                                    <div class="alert alert-success m-t-md"><strong>Mẹo</strong>: Các bức ảnh nên được loại bỏ các vật dụng hoặc khoảng thừa (con người, khung , tường ..) tập chung chính vào nội dung bức ảnh </div>
                                 </div>
                                 <div class="col-md-8 col-sm-6">
 
@@ -51,24 +54,23 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Mô tả ngắn về tác phẩm</label>
-                                        <textarea class="form-control" ng-model="frm.description"></textarea>
+                                        <textarea class="form-control" ng-model="frm.description" required></textarea>
                                         
                                     </div>
                                     <div class="form-group pull-in clearfix">
                                         <div class="col-sm-6">
                                             <label>Phong cách</label>
-                                            <select class="form-control" ng-model="frm.style">
-                                                <option>Trừu tượng</option>
-                                                <option>Đương đại</option>
-                                                <option>Chân dung</option>
+                                            <select class="form-control" ng-model="frm.style" required>
+                                                <option value="">Chọn phong cách</option>
+                                                <option ng-repeat="item in list_style" value="item.id">{{item.name}}</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Chất liệu</label>
-                                            <select class="form-control" ng-model="frm.materials">
-                                                <option>Sơn dầu</option>
-                                                <option>Sơn nước</option>
-                                                <option>Vẽ chì</option>
+                                            
+                                            <select class="form-control" ng-model="frm.material" required>
+                                                <option value="">Chọn chất liệu</option>
+                                                <option ng-repeat="item in list_material" value="item.id">{{item.name}}</option>
                                             </select>
                                         
                                         </div>
@@ -76,11 +78,9 @@
                                     <div class="form-group pull-in clearfix">
                                         <div class="col-sm-6">
                                             <label>Tông màu chính</label>
-                                            <select class="form-control" ng-model="frm.color">
-                                                <option>Màu đỏ</option>
-                                                <option>Màu xanh</option>
-                                                <option>Màu vàng</option>
-                                                <option>Màu đen</option>
+                                            <select class="form-control" ng-model="frm.color" required>
+                                                <option value="">Chọn tông màu</option>
+                                                <option ng-repeat="item in list_color" value="item.id" >{{item.name}}</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-6">
@@ -100,6 +100,7 @@
                                                        class="form-control "
                                                        ng-model="frm.long"
                                                        tabindex="0"
+                                                       required
                                                        aria-required="true" aria-invalid="true" formatnumber>
                                                 </div>
                                                 <div class="col-md-4">
@@ -108,6 +109,7 @@
                                                        class="form-control"
                                                        ng-model="frm.width"
                                                        tabindex="0"
+                                                       required
                                                        aria-required="true" aria-invalid="true" formatnumber>
                                                 </div>
                                                 <div class="col-md-4">
@@ -116,6 +118,7 @@
                                                        class="form-control"
                                                        ng-model="frm.height"
                                                        tabindex="0"
+                                                       required
                                                        aria-required="true" aria-invalid="true" formatnumber>
                                                 </div>
                                             </div>
@@ -126,6 +129,7 @@
                                                    class="form-control"
                                                    ng-model="frm.weight"
                                                    tabindex="0"
+                                                   
                                                    aria-required="true" aria-invalid="true" formatnumber>
                                         </div>
                                     </div>
@@ -134,7 +138,7 @@
                                     
                                     <div class="checkbox">
                                         <label class="i-checks">
-                                            <input type="checkbox" required="" checked
+                                            <input type="checkbox"  checked
                                                    ng-model="frm.forsale"
                                                    tabindex="0"
                                                    ><i></i> Tác phẩm thương mại

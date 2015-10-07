@@ -4,7 +4,7 @@
 use Illuminate\Database\Eloquent\Model;
 use Config;
 
-class ArtworkStyleModel extends Model {
-	protected $table      = 'artwork_style';
+class ArtworkMaterialModel extends Model {
+	protected $table      = 'artwork_material';
 	public $timestamps 	  = false;
 }
