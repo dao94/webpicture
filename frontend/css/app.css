@@ -4180,6 +4180,7 @@ a.text-#000000:hover {
 }
 
 .wrapper-md {
+  background: #fff;
   padding: 20px;
 }
 
@@ -4633,7 +4634,7 @@ a.text-#000000:hover {
 }
 
 .m-b {
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;*/
 }
 
 .m-b-md {
@@ -4784,7 +4785,7 @@ a.text-#000000:hover {
 }
 
 .w-md {
-  width: 240px;
+  /*width: 240px;*/
 }
 
 .w-lg {

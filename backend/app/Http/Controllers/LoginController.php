@@ -76,14 +76,12 @@ class LoginController extends Controller {
 				'password' => 'required',
 				'email'    => 'required'
 			]);
-
-
+			
 			if($v->fails()) {
 				$this->error = true;
 				$this->error_message = 'Thông tin không chính xác hoặc không đầy đủ, vui lòng thử lại!';
 				goto next;
 			}
-
 
 			$email    = $request->get('email');
 			$password = md5(md5($request->get('password')));
