@@ -8,6 +8,9 @@ angular
     	$scope.list_style = [];
     	$scope.list_color = [];
 
+    	$scope.list_images = [];
+    	$scope.feature_image = [];
+    	$scope.uploadProcessing = 0;
     	$scope.uploader = new FileUploader({
             url: ApiPath + 'uploader',
             alias: 'file',
@@ -22,12 +25,31 @@ angular
             ]
     	});
 
-    	$scope.uploader.onAfterAddingFile = function (item){
-    		$scope.uploader.uploadAll();
+    	$scope.uploader.onAfterAddingAll  = function (addedItems){
+    		$scope.uploadProcessing = 0;
+			$scope.uploader.uploadAll();
     	};
 
 
+    	$scope.uploader.onProgressAll = function (process){
+			$scope.uploadProcessing = process;
+    	}
+    	$scope.uploader.onCompleteItem = function (item, response, status, headers){
+			if(!response.error){
+				if($scope.list_images.length == 0){
+					$scope.setFeatureImage(response.data);
+				}
+				$scope.list_images.push(response.data);
+			}
+    	}
+    	$scope.uploader.onCompleteAll = function (){
+    		$scope.uploadProcessing = 0;
+    	}
 
+
+    	$scope.setFeatureImage = function (image){
+    		$scope.feature_image = image;
+    	}
     	$scope.save = function (frm){
     		console.log(frm);
     	}

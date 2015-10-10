@@ -26,10 +26,18 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-4 col-sm-6 " style="min-height:500px">
-                                    <div class="b-a b-2x wrapper-lg color-swatch gray-lighter text-center m-b" style="background:#eee;min-height:300px">
+                                    <div class="b-a b-2x wrapper-lg color-swatch gray-lighter text-center m-b" style="background:#eee url({{MediaPath + feature_image}}) no-repeat ;min-height:300px;background-size:100% 100%;">
                                       
                                     </div>
+                                    <div class="clearfix"></div>
+                                    <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="{{uploadProcessing}}" aria-valuemin="0" aria-valuemax="100"  aria-valuetext="{{uploadProcessing}}%" style="width: {{uploadProcessing}}%;"></div>
+                                    <div class="clearfix"></div>
                                     <div class="row">
+                                        <div class="col-md-3" ng-repeat="image in list_images">
+                                            <div class="b-a " style="background:#eee url({{MediaPath + image}});background-size:100% 100px;height:100px;overflow:hidden;cursor:pointer" ng-click="setFeatureImage(image)" >
+                                                
+                                            </div>
+                                        </div>
                                         <div class="col-md-3">
                                             <div class="b-a b-dashed" nv-file-drop="" uploader="uploader">
                                                 <div nv-file-over="" uploader="uploader" over-class="another-file-over-class">

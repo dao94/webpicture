@@ -24,6 +24,7 @@ class UploaderController extends Controller {
 	}
 
 	public function postIndex(Request $request){
+
 		if($this->fileHandler($request, 'art_images')){
 			$this->error = false;
 			$this->error_message = "Thành công";

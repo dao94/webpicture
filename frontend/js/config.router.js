@@ -9,6 +9,7 @@ angular.module('app')
           $rootScope.$state       = $state;
           $rootScope.$stateParams = $stateParams;     
           $rootScope.user         = $auth.getUser() || false;   
+          $rootScope.MediaPath    = MediaPath;
 
           $rootScope.$on('$stateChangeSuccess', function (ev, data, bcb) {
             window.scrollTo(0, 0);

@@ -1,6 +1,7 @@
 'use strict';
 
 var ApiPath = 'http://picture.local.com/backend/public/api/v1/';
+var MediaPath = 'http://picture.local.com/backend/public/uploads/';
 
 angular.module('app', [
     'ngAnimate',
