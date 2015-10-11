@@ -26,6 +26,20 @@ class ProfileController extends Controller {
 		return $this->ResponseData($listCity);
 	}
 
+	public function getListdistrict(Request $request) {
+		$cityId       = $request->get('cityId');
+		$listDistrict = '';
+		if(!$cityId) {
+			$this->error = true;
+			$this->error_message = 'cityId is empty !';
+			goto next;
+		}
+
+		$listDistrict = DB::table('system_district')->where('city_id','=',$cityId)->get();
+		next:
+		return $this->ResponseData($listDistrict);	
+	}
+
 	public function postUpdate(Request $request) {
 		$name        = $request->get('fullname');
 		$age         = $request->get('age');
@@ -33,7 +47,7 @@ class ProfileController extends Controller {
 		$sex         = $request->get('sex');
 		$date        = $request->get('date');
 		$description = $request->get('description');
-		echo $date;
+
 	}
 
 }

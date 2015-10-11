@@ -27,9 +27,9 @@ angular.module('app')
         },
         settings: {
           themeID: 1,
-          navbarHeaderColor: 'bg-info dker',
-          navbarCollapseColor: 'bg-info dker',
-          asideColor: 'bg-light dker b-r',
+          navbarHeaderColor: 'bg-success success',
+          navbarCollapseColor: 'bg-success success',
+          asideColor: 'bg-light success b-r',
           headerFixed: true,
           asideFixed: false,
           asideFolded: false,
